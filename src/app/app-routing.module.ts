@@ -5,8 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/upload', pathMatch: 'full' },
-  { path: 'upload', component: PhotoUploadComponent }
+  { path: '', component: PhotoUploadComponent }
 ];
 
 @NgModule({

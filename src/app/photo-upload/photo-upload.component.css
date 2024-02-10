@@ -1,47 +1,62 @@
 /* src/app/photo-upload/photo-upload.component.css */
 
 .chobikothin-app {
-    text-align: center;
-    margin: 20px;
-  }
-  
-  h2 {
-    color: #333;
-  }
-  
-  .upload-container {
-    margin: 20px 0;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    background-color: #45a049;
-  }
-  
-  .result-container {
-    margin-top: 20px;
-  }
-  
-  .photo-frame {
-    border: 2px solid #333;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  img {
-    max-width: 100%;
-    max-height: 400px;
-  }
-  
-  .caption {
-    font-size: 16px;
-    color: #555;
-  }
-  
+  text-align: center;
+  margin: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+.upload-container {
+  margin: 20px 0;
+}
+
+.upload {
+  margin: 15px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+button {
+  padding: 0px 10px;
+  margin: 0 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.result-container {
+  margin-top: 20px;
+  margin-bottom: 20px; /* Add sufficient margin at the bottom */
+}
+
+.photo-frame {
+  border: 2px solid #333;
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  margin: 5px auto 10px;
+}
+
+.uploaded-img {
+  width: 60%;
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  max-height: 400px;
+}
+
+.caption {
+  font-size: 16px;
+  color: #555;
+}

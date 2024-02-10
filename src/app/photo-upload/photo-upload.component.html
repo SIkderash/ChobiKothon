@@ -1,64 +1,46 @@
 <!-- src/app/photo-upload/photo-upload.component.html -->
 <section class="smart-scroll">
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand heading-black text-primary" href="index.html">
-                Chobikothon
-            </a>
-            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span data-feather="grid"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ml-auto">
+    <!-- ... (existing code) ... -->
+</section>
 
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll d-flex flex-row align-items-center text-success" href="#">
-                            <em data-feather="layout" width="18" height="18" class="mr-2"></em>
-                            Try It
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-  </section>
-  
-  <!--hero header-->
-  <section class="py-7 py-md-0 bg-hero" id="home">
+<!--hero header-->
+<section class="py-7 py-md-0 bg-hero" id="home">
     <div class="container">
         <div class="row vh-md-100">
-            <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
-                <h1 class="heading-black text-capitalize text-primary">ChobiKothon</h1>
-                <p class="heading-black text-center"> Generate captions for images in Bangla</p>
-                <p class="lead py-3">Upload an image here</p>
-                <div class="photo-frame" *ngIf="selectedFileUrl">
-                    <img [src]="selectedFileUrl" alt="Selected Photo">
-                  </div>
+            <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center flex flex-col justify-center">
+                <h1 class="heading-black text-capitalize text-primary">ছবিকথন </h1>
+                <p class="heading-black text-center mb-4"> Generate captions for images in Bangla</p>
                 <input type="file" (change)="onFileSelected($event)" accept="image/*">
-                <button class="btn btn-primary d-inline-flex flex-row align-items-center"  (click)="onUpload()">
-                    Upload
-                    <em class="ml-2" data-feather="arrow-right"></em>
-                </button>
+                <div class="upload">
+                    <p class="lead py-3">Upload an image here</p>
+                    <button class="btn btn-primary d-inline-flex flex-row align-items-center mb-4"  (click)="onUpload()">
+                        Upload
+                        <em class="ml-2" data-feather="arrow-right"></em>
+                    </button>
+                </div>
+                <div class="photo-frame" *ngIf="selectedFileUrl">
+                    <img class="uploaded-img" [src]="selectedFileUrl" alt="Selected Photo">
+                </div>
                 <div *ngIf="selectedFileUrl" class="result-container">
+                    <p class="caption" *ngIf="generating">Generating Captions......... </p>
+                    <p class="caption" *ngIf="cnt==4">Caption 1: {{ uploadedCaption1 }}</p>  
+                    <p class="caption" *ngIf="cnt==4">Caption 2: {{ uploadedCaption4 }}</p>  
+                    <p class="caption" *ngIf="cnt==4">Caption 3: {{ uploadedCaption3 }}</p>  
+                    <p class="caption" *ngIf="cnt==4">Caption 4: {{ uploadedCaption2 }}</p>  
 
-                    <p class="caption" *ngIf="uploadedCaption">Generated Caption: {{ uploadedCaption }}</p>
-                  </div>
+                    <!-- Add the text box for user feedback -->
+                    <div *ngIf="generating" class="improve-model">
+                        <label for="improveModelFeedback" class="mb-2">Help us improve the model. Provide a caption for the image</label>
+                        <textarea id="improveModelFeedback" class="form-control" rows="4" placeholder="Your feedback"></textarea>
+                    
+                        <!-- Add the submit button -->
+                        <button class="btn btn-primary d-inline-flex flex-row align-items-center mt-3" (click)="addCaption()">
+                            Submit
+                            <em class="ml-2" data-feather="arrow-right"></em>
+                        </button>
+                    </div>
+                </div>
             </div>
-            
         </div>
     </div>
-  </section>
-  
-<!-- <div class="chobikothin-app">
-    <h2>ChobiKothon</h2>
-  
-    <div class="upload-container">
-      <input type="file" (change)="onFileSelected($event)" accept="image/*">
-      <button (click)="onUpload()">Upload</button>
-    </div>
-  
-
-  </div>
-   -->
+</section>
